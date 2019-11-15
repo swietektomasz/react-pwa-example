@@ -1,0 +1,32 @@
+.viewContainer {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.clickCenter {
+  background-color: red;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 15vw;
+  margin: 10%;
+  font-size: 24pt;
+}
+
+.clickCenter:hover {
+  background-color: yellow;
+}
+
+.clickCenter:active {
+  box-shadow: 0 5px #666;
+  transform: scale(0.9);
+}
+
+.score {
+  text-align: center;
+  font-size: 24pt;
+}
