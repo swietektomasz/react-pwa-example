@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app'
 
 import 'firebase/auth'
 import firebaseConfig from './firebaseConfig'
+import Login from './components/Login'
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 
@@ -16,7 +17,7 @@ const providers = {
 const App = ({ signInWithGoogle, signOut, user }) => (
   <div className="App">
     <header className="App-header">
-      {user ? <p>Hello, {user.displayName}</p> : <p>Please sign in.</p>}
+      {user ? <p>Hello, {user.displayName}</p> : <Login />}
       {user ? (
         <button onClick={signOut}>Sign out</button>
       ) : (
