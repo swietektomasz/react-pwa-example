@@ -1,33 +1,17 @@
-import * as React from 'react'
-import withFirebaseAuth from 'react-with-firebase-auth'
-import * as firebase from 'firebase/app'
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import 'firebase/auth'
-import firebaseConfig from './firebaseConfig'
 import Login from './components/Login'
+import Navigation from './components/Navigation'
+import MainView from './containers/main'
 
-const firebaseApp = firebase.initializeApp(firebaseConfig)
-
-const firebaseAppAuth = firebaseApp.auth()
-
-const providers = {
-  googleProvider: new firebase.auth.GoogleAuthProvider(),
-}
-
-const App = ({ signInWithGoogle, signOut, user }) => (
-  <div className="App">
-    <header className="App-header">
-      {user ? <p>Hello, {user.displayName}</p> : <Login />}
-      {user ? (
-        <button onClick={signOut}>Sign out</button>
-      ) : (
-        <button onClick={signInWithGoogle}>Sign in with Google</button>
-      )}
-    </header>
-  </div>
+const App = () => (
+  <BrowserRouter>
+    <Navigation />
+    <hr />
+    <Route exact path='/login' component={Login} />
+    <Route path='/home' component={MainView} />
+  </BrowserRouter>
 )
 
-export default withFirebaseAuth({
-  providers,
-  firebaseAppAuth,
-})(App)
+export default App

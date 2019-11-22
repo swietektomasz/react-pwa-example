@@ -1,11 +1,17 @@
+import app from 'firebase/app'
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyAVG3yWj2Fn93o7dZtwY3jMAcbEiN2hfIk',
-  authDomain: 'react-pwa-example-1efe2.firebaseapp.com',
-  databaseURL: 'https://react-pwa-example-1efe2.firebaseio.com',
-  projectId: 'react-pwa-example-1efe2',
-  storageBucket: 'react-pwa-example-1efe2.appspot.com',
-  messagingSenderId: '906901561310',
-  appId: '1:906901561310:web:41b1a3eef4369bcdef074f',
+  apiKey: process.env.FIREBASE_APP_API_KEY,
+  authDomain: process.env.FIREBASE_APP_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_APP_DATABASE_URL,
+  projectId: process.env.FIREBASE_APP_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_APP_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 }
 
-export default firebaseConfig
+export class Firebase {
+  constructor () {
+    app.initializeApp(firebaseConfig)
+  }
+}
