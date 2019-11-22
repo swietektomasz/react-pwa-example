@@ -1,15 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { compose } from 'recompose'
+import { withRouter } from 'react-router-dom'
+
+import { withFirebase } from '../Firebase/context'
+
 import './login.css'
 
-const Login = ({ signInWithGoogle }) => (
-  <div className='login-page'>
-    <div className='login-card'>
-      <p>Hello! Please sign in to enter the page.</p>
-      <button className='login-button' onClick={signInWithGoogle}>
-        Sign in using Google
-      </button>
-    </div>
-  </div>
-)
+const initialState = {
+  email: '',
+  password: '',
+  error: null
+}
 
-export default Login
+const Login = ({ firebase: { doSignInWithEmailAndPassword }, history }) => {
+  const [user, setUser] = useState(initialState)
+
+  const isValid = user.email === '' || user.password === ''
+
+  const signIn = event => {
+    doSignInWithEmailAndPassword(user.email, user.password)
+      .then(() => {
+        setUser(initialState)
+        history.push('/home')
+      })
+      .catch(error => {
+        setUser({ ...user, error: error })
+      })
+
+    event.preventDefault()
+  }
+
+  return (
+    <div className='login-page'>
+      <div className='login-card'>
+        <p>Hello! Please sign in to enter the page.</p>
+        <input
+          name='username'
+          value={user.username}
+          onChange={event => setUser({ ...user, email: event.target.value })}
+          type='text'
+          placeholder='Email'
+        />
+        <input
+          name='email'
+          value={user.password}
+          onChange={event => setUser({ ...user, password: event.target.value })}
+          type='text'
+          placeholder='Password'
+        />
+        <button disabled={isValid} className='login-button' onClick={signIn}>
+          Sign in
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default compose(
+  withRouter,
+  withFirebase
+)(Login)
