@@ -8,7 +8,7 @@ import './main-view.css'
 
 function MainView () {
   const [animes, setAnimes] = useState([])
-  const { data } = useQuery(animeList)
+  const { data } = useQuery(animeList, { variables: { search: 'naruto' } })
 
   useEffect(
     () => {
