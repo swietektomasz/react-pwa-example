@@ -1,7 +1,5 @@
-const fetch = require('node-fetch')
+import ApolloClient from 'apollo-boost'
 
-export const getAnimeList = async () => {
-  const response = await fetch('http://localhost:4000/anime').then(res => res.json())
-
-  return { animes: response.data.Page.ANIME, page: response.data.pageInfo }
-}
+export const client = new ApolloClient({
+  uri: 'https://cors-anywhere.herokuapp.com/https://graphql.anilist.co'
+})

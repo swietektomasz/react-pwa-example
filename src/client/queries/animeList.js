@@ -1,5 +1,7 @@
-module.exports = {
-  query: `query(
+import { gql } from 'apollo-boost'
+
+export const animeList = gql`
+  query(
     $page: Int = 1
     $id: Int
     $type: MediaType
@@ -98,5 +100,5 @@ module.exports = {
         }
       }
     }
-  }`
-}
+  }
+`

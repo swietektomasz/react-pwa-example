@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
+import { useQuery } from '@apollo/react-hooks'
 
+import { animeList } from '../../client/queries'
 import AnimeCard from '../../components/AnimeCard'
 
 import './main-view.css'
-import { getAnimeList } from '../../client'
 
 function MainView () {
   const [animes, setAnimes] = useState([])
+  const { data } = useQuery(animeList)
 
-  useEffect(() => {
-    getAnimeList().then(response => setAnimes(response.animes))
-  }, [])
-
-  console.log(animes)
+  useEffect(
+    () => {
+      if (data) {
+        setAnimes(data.Page.ANIME)
+      }
+    },
+    [data]
+  )
 
   return (
     <div className='viewContainer'>
