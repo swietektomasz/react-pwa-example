@@ -3,32 +3,42 @@ import { Link } from 'react-router-dom'
 
 import LogoutButton from '../Logout'
 
+import './navigation.css'
+
 const Navigation = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuthorized authUser={authUser} /> : <NavigationNotAuthorized />}</div>
+  <div className='nav-bar'>
+    {authUser ? <NavigationAuthorized authUser={authUser} /> : <NavigationNotAuthorized />}
+  </div>
 )
 
 const NavigationAuthorized = ({ authUser }) => (
   <div>
-    <ul>
-      <li>
-        <Link to={'/home'}>Home</Link>
+    <ul className='nav-list'>
+      <li className='nav-item'>
+        <Link className='nav-link' to={'/home'}>
+          Home
+        </Link>
       </li>
-      <li>
+      <li className='sign-out'>
+        <span className='logged-in'>Logged in as: {authUser.email}</span>
         <LogoutButton />
       </li>
     </ul>
-    <p>{authUser.email}</p>
   </div>
 )
 
 const NavigationNotAuthorized = () => (
   <div>
-    <ul>
-      <li>
-        <Link to={'/login'}>Sign In</Link>
+    <ul className='nav-list'>
+      <li className='nav-item'>
+        <Link className='nav-link' to={'/login'}>
+          Sign In
+        </Link>
       </li>
-      <li>
-        <Link to={'/signup'}>Sign Up</Link>
+      <li className='nav-item'>
+        <Link className='nav-link' to={'/signup'}>
+          Sign Up
+        </Link>
       </li>
     </ul>
   </div>

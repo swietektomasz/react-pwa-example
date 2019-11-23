@@ -27,7 +27,6 @@ const App = ({ firebase }) => {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Navigation authUser={authUser} />
-        <hr />
         <Route exact path='/login' component={Login} />
         <Route path='/signup' component={SignUp} />
         <Route path='/home' component={MainView} />
