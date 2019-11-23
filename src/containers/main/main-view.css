@@ -1,3 +1,4 @@
 .viewContainer {
   display: flex;
+  flex-wrap: wrap;
 }

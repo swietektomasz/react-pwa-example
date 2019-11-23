@@ -1,12 +1,19 @@
 import React from 'react'
 
-const AnimeCard = () => (
-  <div>
+import './anime-card.css'
+
+const AnimeCard = ({ anime }) => (
+  <div className='anime-card'>
     <ol>
-      <li>Title</li>
-      <li>genre</li>
-      <li>episodes</li>
-      <li>date</li>
+      <li>Title: {anime.title.userPreferred}</li>
+      <li>Average score: {anime.averageScore}</li>
+      <li>Started: {`${anime.startDate.day}.${anime.startDate.month}.${anime.startDate.year}`}</li>
+      <li>
+        Ended:{' '}
+        {anime.endDate.day
+          ? `${anime.endDate.day}.${anime.endDate.month}.${anime.endDate.year}`
+          : 'Not ended'}
+      </li>
     </ol>
   </div>
 )

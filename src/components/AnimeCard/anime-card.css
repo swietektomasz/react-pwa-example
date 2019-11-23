@@ -1,0 +1,6 @@
+.anime-card {
+  flex: 0 1 200px;
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+}
