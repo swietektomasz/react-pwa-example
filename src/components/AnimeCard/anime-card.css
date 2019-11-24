@@ -1,6 +1,18 @@
 .anime-card {
-  flex: 0 1 200px;
-  border: 1px solid black;
-  margin: 1rem;
-  padding: 1rem;
+  flex: 1 1 300px;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
