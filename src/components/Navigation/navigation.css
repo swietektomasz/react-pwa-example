@@ -4,6 +4,7 @@
   width: 100%;
   top: 0;
   margin-bottom: 20px;
+  z-index: 1;
 }
 
 .nav-list {

@@ -1,8 +1,48 @@
 .anime-card {
-  flex: 1 1 300px;
-  animation-duration: 1s;
-  animation-name: slidein;
-  animation-timing-function: ease-in-out;
+  flex: 0 0 25%;
+  background-color: transparent;
+  height: 60vh;
+  perspective: 1000px;
+}
+
+.anime-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.anime-card:hover .anime-card-inner {
+  transform: rotateY(180deg);
+}
+
+.anime-card-front, .anime-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.anime-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.anime-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+
+.anime-card-description {
+  list-style: none;
+  margin: 1em;
 }
 
 @keyframes slidein {

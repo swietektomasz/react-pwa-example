@@ -8,7 +8,7 @@ import './main-view.css'
 
 function MainView () {
   const [animes, setAnimes] = useState([])
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState(null)
   const { data } = useQuery(animeList, { variables: { search } })
 
   useEffect(
