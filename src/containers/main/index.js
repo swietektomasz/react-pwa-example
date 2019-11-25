@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { AbilityControl } from 'react-ability'
 
 import { animeList } from '../../client/queries'
 import AnimeCard from '../../components/AnimeCard'
@@ -22,13 +23,15 @@ function MainView () {
 
   return (
     <div>
-      <input
-        name='search'
-        value={search}
-        onChange={event => setSearch(event.target.value)}
-        type='text'
-        placeholder='Search...'
-      />
+      <AbilityControl permission='SEARCH'>
+        <input
+          name='search'
+          value={search}
+          onChange={event => setSearch(search ? null : event.target.value)}
+          type='text'
+          placeholder='Search...'
+        />
+      </AbilityControl>
       <div className='viewContainer'>
         {animes.map(anime => (
           <AnimeCard key={anime.id} anime={anime} />

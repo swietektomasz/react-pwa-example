@@ -5,13 +5,17 @@ import LogoutButton from '../Logout'
 
 import './navigation.css'
 
-const Navigation = ({ authUser }) => (
+const Navigation = ({ authUser, changeRole }) => (
   <div className='nav-bar'>
-    {authUser ? <NavigationAuthorized authUser={authUser} /> : <NavigationNotAuthorized />}
+    {authUser ? (
+      <NavigationAuthorized changeRole={changeRole} authUser={authUser} />
+    ) : (
+      <NavigationNotAuthorized />
+    )}
   </div>
 )
 
-const NavigationAuthorized = ({ authUser }) => (
+const NavigationAuthorized = ({ authUser, changeRole }) => (
   <div>
     <ul className='nav-list'>
       <li className='nav-item'>
@@ -20,6 +24,7 @@ const NavigationAuthorized = ({ authUser }) => (
         </Link>
       </li>
       <li className='sign-out'>
+        <button onClick={changeRole}>Change role</button>
         <span className='logged-in'>Logged in as: {authUser.email}</span>
         <LogoutButton />
       </li>

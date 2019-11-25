@@ -3,7 +3,6 @@ import React from 'react'
 import './anime-card.css'
 
 const AnimeCard = ({ anime }) => {
-  console.log(anime)
   return (
     <div className='anime-card'>
       <div className='anime-card-inner'>

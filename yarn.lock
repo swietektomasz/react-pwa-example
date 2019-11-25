@@ -8756,6 +8756,11 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-ability@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-ability/-/react-ability-1.1.0.tgz#d49dd42c2a2289f992a80ec2db2c59e374d11f8f"
+  integrity sha512-ZL2F414QKYYMawlm78IxD6ZLQb7hKRctGw/xRJUf0r/VhJ2DbXKvZ4dd/aB5VyB/Qt1GXaTBswY12oa+qU4rEw==
+
 react-app-polyfill@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.4.tgz#4dd2636846b585c2d842b1e44e1bc29044345874"

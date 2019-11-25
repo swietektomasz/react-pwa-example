@@ -13,6 +13,7 @@
     "graphql": "^14.5.8",
     "node-fetch": "^2.6.0",
     "react": "^16.11.0",
+    "react-ability": "^1.1.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
