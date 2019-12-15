@@ -1,0 +1,23 @@
+.filter-wrapper {
+  display: flex;
+  background-color: #386150;
+  flex-direction: column;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-wrapper {
+  margin: 12px;
+}
+
+.input-field {
+  padding: 6px 12px;
+  margin: 6px;
+  border: none;
+}
+
+.header {
+  margin: 0 12px;
+}
