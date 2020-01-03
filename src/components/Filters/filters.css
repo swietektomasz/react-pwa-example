@@ -21,3 +21,9 @@
 .header {
   margin: 0 12px;
 }
+
+.submit-button {
+  border: none;
+  margin: 18px 12px;
+  padding: 6px 12px;
+}

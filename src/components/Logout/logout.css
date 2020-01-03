@@ -1,0 +1,8 @@
+.logout-button {
+  border: none;
+  padding: 12px;
+}
+
+.logout-button:hover {
+  opacity: 0.8;
+}

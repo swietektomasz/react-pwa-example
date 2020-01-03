@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost'
+import { gql } from "apollo-boost";
 
 export const animeList = gql`
   query(
@@ -21,7 +21,7 @@ export const animeList = gql`
     $excludedGenres: [String]
     $includedTags: [String]
     $excludedTags: [String]
-    $sort: [MediaSort] = [SCORE_DESC, POPULARITY_DESC]
+    $sort: [MediaSort]
   ) {
     Page(page: $page, perPage: 20) {
       pageInfo {
@@ -101,4 +101,4 @@ export const animeList = gql`
       }
     }
   }
-`
+`;
