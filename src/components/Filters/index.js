@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import React from "react";
 import { Formik } from "formik";
 
-import { animeList } from "../../client/queries";
 import "./filters.css";
+import { useFilters } from "../../shared/hooks/useFilters";
 
 const initialFilters = {
   search: "",
@@ -11,26 +10,16 @@ const initialFilters = {
   sort: "SCORE_DESC"
 };
 
-export const Filters = ({ setAnimes }) => {
-  const [filters, setFilters] = useState();
-  const { data } = useQuery(animeList, { variables: filters });
-
-  useEffect(() => {
-    if (data) {
-      setAnimes(data.Page.ANIME);
-    }
-  });
+export const Filters = () => {
+  const [filters, setFilters] = useFilters(initialFilters);
 
   return (
     <div className="filter-wrapper">
       <h3 className="header">Search by:</h3>
       <Formik
-        initialValues={initialFilters}
+        initialValues={filters}
         onSubmit={(values, { setSubmitting }) => {
-          setFilters({
-            search: values.search === "" ? null : values.search,
-            sort: values.sort
-          });
+          setFilters(values);
           setSubmitting(false);
         }}
       >

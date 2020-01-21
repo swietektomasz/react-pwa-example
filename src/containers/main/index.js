@@ -1,23 +1,18 @@
-import React, { useState } from 'react'
+import React from "react";
 
-import AnimeCard from '../../components/AnimeCard'
+import { Filters } from "../../components/Filters";
+import { AnimeCardList } from "../../components/AnimeCardList";
+import { AnimeProvider } from "../../shared/context/animeContext";
 
-import './main-view.css'
-import { Filters } from '../../components/Filters'
+import "./main-view.css";
 
-function MainView () {
-  const [animes, setAnimes] = useState([])
-
+function MainView() {
   return (
-    <div>
-      <Filters setAnimes={setAnimes} />
-      <div className='viewContainer'>
-        {animes.map(anime => (
-          <AnimeCard key={anime.id} anime={anime} />
-        ))}
-      </div>
-    </div>
-  )
+    <AnimeProvider>
+      <Filters />
+      <AnimeCardList />
+    </AnimeProvider>
+  );
 }
 
-export default MainView
+export default MainView;

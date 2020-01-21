@@ -27,3 +27,7 @@
   margin: 18px 12px;
   padding: 6px 12px;
 }
+
+.submit-button:hover {
+  opacity: 0.8;
+}
